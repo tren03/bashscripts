@@ -16,11 +16,12 @@ webpass() {
         local site=$1
         local pass=$2
 
-        # *******************************************************
-        # make sure to fill with encryption you need and have a variable called "secure_password" which stores the final encrypted pass
-        # *******************************************************
-
-
+        # Generate a SHA-256 hash of the site and password
+        password_hash=$(echo -n "$site$pass" | sha256sum | cut -d" " -f1)        
+        # Convert the SHA-256 hash to Base64
+        password_base64=$(echo -n "$password_hash" | xxd -r -p | base64)        
+        # Take the first 16 characters of the Base64 encoded string
+        secure_password=$(echo -n "$password_base64" | head -c 16)
     }
 
     # Function to store a password in the hidden file
