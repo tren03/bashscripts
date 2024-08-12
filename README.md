@@ -8,12 +8,15 @@ The `webpass` script is a command-line utility for securely storing and retrievi
 
 - **Store Passwords:** Add or update passwords for different websites.
 - **Retrieve Passwords:** Fetch stored passwords and generate secure representations.
+  
+## Flow
+![image](https://github.com/user-attachments/assets/afef0479-bf58-4e63-b4f0-70d3968612cd)
+
+
+    
 
 ## Prerequisites
-
-- A Unix-like operating system (Linux, macOS).
-- Basic understanding of shell scripting.
-- Ensure the script is added to your `.bashrc` or equivalent shell configuration file for access.
+- bash shell
 
 ## Installation
 
