@@ -14,13 +14,13 @@ all_sessions=$(tmux ls | cut -d ":" -f 1)
 # Checking if needed sesh is already in list
 if echo "$all_sessions" | grep -q "^$current_dir$"; then
 	echo "Session '$current_dir' exists, joining that..."
-	tmux attach -t "$current_dir"
+	tmux -u attach -t "$current_dir"
 else
 	echo "Session '$current_dir' does not exist, Creating one..."
     # Create a session in detach mode, add the project terminal and then attach it
 	tmux new-session -d -s"$current_dir" -- nvim .
-	tmux neww -d -t"$current_dir"
+	tmux -u neww -d -t"$current_dir"
     
-	tmux attach -t "$current_dir"
+	tmux -u attach -t "$current_dir"
 
 fi
